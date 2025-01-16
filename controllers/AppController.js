@@ -1,29 +1,16 @@
-import redisClient from '../utils/redis.js'; // Redis client utility
-import dbClient from '../utils/db.js'; // DB client utility
+import redisClient from '../utils/redis';
+import dbClient from '../utils/db';
 
 class AppController {
-  // Endpoint to check if Redis and DB are alive
-  static async getStatus(req, res) {
-    try {
-      const redisAlive = redisClient.isAlive();
-      const dbAlive = dbClient.isAlive();
-      res.status(200).json({ redis: redisAlive, db: dbAlive });
-    } catch (error) {
-      res.status(500).json({ error: 'Something went wrong' });
-    }
+  static getStatus(request, response) {
+    response.status(200).json({ redis: redisClient.isAlive(), db: dbClient.isAlive() });
   }
 
-  // Endpoint to get the stats (number of users and files in DB)
-  static async getStats(req, res) {
-    try {
-      const nbUsers = await dbClient.nbUsers();
-      const nbFiles = await dbClient.nbFiles();
-      res.status(200).json({ users: nbUsers, files: nbFiles });
-    } catch (error) {
-      res.status(500).json({ error: 'Something went wrong' });
-    }
+  static async getStats(request, response) {
+    const usersNum = await dbClient.nbUsers();
+    const filesNum = await dbClient.nbFiles();
+    response.status(200).json({ users: usersNum, files: filesNum });
   }
 }
 
-export default AppController;
-
+module.exports = AppController;
