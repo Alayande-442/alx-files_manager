@@ -1,5 +1,5 @@
-import redisClient from '../utils/redis';
-import dbClient from '../utils/db';
+import redisClient from '../utils/redis.js'; // Make sure to use the `.js` extension
+import dbClient from '../utils/db.js'; // Also ensure `.js` extension here
 
 class AppController {
   static getStatus(request, response) {
@@ -13,4 +13,5 @@ class AppController {
   }
 }
 
-module.exports = AppController;
+export default AppController;  // Use ES module export (not `module.exports`)
+
