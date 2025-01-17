@@ -1,5 +1,6 @@
 import sha1 from 'sha1';
-import { ObjectID } from 'mongodb';
+import pkg from 'mongodb';  // Import mongodb as a whole
+const { ObjectID } = pkg;  // Destructure ObjectID from the imported package
 import Queue from 'bull';
 import dbClient from '../utils/db.js';  // Corrected path with .js extension
 import redisClient from '../utils/redis.js';  // Corrected path with .js extension

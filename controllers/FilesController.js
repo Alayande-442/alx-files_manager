@@ -1,10 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 import { promises as fs } from 'fs';
-import { ObjectID } from 'mongodb';
+import pkg from 'mongodb';  // Import the entire 'mongodb' package
+const { ObjectID } = pkg;  // Destructure ObjectID from the package
 import mime from 'mime-types';
 import Queue from 'bull';
-import dbClient from '../utils/db';
-import redisClient from '../utils/redis';
+import dbClient from '../utils/db.js';
+import redisClient from '../utils/redis.js';
 
 const fileQueue = new Queue('fileQueue', 'redis://127.0.0.1:6379');
 
