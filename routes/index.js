@@ -1,4 +1,4 @@
-import { Router } from 'express';
+iimport { Router } from 'express';
 import AppController from '../controllers/AppController.js';
 import UsersController from '../controllers/UsersController.js';
 import AuthController from '../controllers/AuthController.js';
@@ -31,4 +31,3 @@ router.put('/files/:id/unpublish', FilesController.putUnpublish);
 router.get('/files/:id/data', FilesController.getFile);
 
 export default router;
-
