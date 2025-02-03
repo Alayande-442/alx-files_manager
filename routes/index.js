@@ -5,7 +5,7 @@ import AuthController from '../controllers/AuthController';
 import FilesController from '../controllers/FilesController';
 
 const router = Router();
-
+//router side
 router.get('/status', AppController.getStatus);
 
 router.get('/stats', AppController.getStats);
