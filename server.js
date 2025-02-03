@@ -1,5 +1,5 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import dotenv from 'dotenv';
-
 import express from 'express';
 import routes from './routes/index';
 
